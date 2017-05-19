@@ -35,3 +35,17 @@ function SWEP:drawAnimFunc()
 	
 	self:sendWeaponAnim("draw" .. suffix)
 end
+
+//-----------------------------------------------------------------------------
+// holsterAnimFunc for loaded and empty draws to use separate anims
+//-----------------------------------------------------------------------------
+
+function SWEP:holsterAnimFunc()
+	local suffix = ""
+	
+	if self:Clip1() == 0 then
+		suffix = "_empty"
+	end
+	
+	self:sendWeaponAnim("holster" .. suffix)
+end
